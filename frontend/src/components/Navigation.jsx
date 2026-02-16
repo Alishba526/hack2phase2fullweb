@@ -108,6 +108,15 @@ const Navigation = () => {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link
+                  href="/chat"
+                  className={`nav-link ${pathname === '/chat' ? 'active' : ''}`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  AI Chat
+                </Link>
+              </li>
+              <li className="nav-item">
                 <button
                   onClick={handleLogout}
                   className="nav-link nav-logout"
