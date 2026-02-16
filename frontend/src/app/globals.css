@@ -1,0 +1,295 @@
+/* src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      transparent
+    )
+    rgb(var(--background-end-rgb));
+}
+
+/* High Contrast Mode Styles */
+.high-contrast-mode {
+  /* Increase contrast for text */
+  color-scheme: dark;
+}
+
+.high-contrast-mode * {
+  border-color: #000 !important;
+}
+
+.high-contrast-mode .bg-white {
+  background-color: #fff !important;
+}
+
+.high-contrast-mode .bg-gray-100 {
+  background-color: #f3f4f6 !important;
+}
+
+.high-contrast-mode .text-gray-700 {
+  color: #1f2937 !important;
+}
+
+.high-contrast-mode .text-gray-800 {
+  color: #111827 !important;
+}
+
+.high-contrast-mode .border-gray-200 {
+  border-color: #d1d5db !important;
+}
+
+.high-contrast-mode .shadow-sm {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Larger focus indicators for accessibility */
+.high-contrast-mode *:focus {
+  outline: 3px solid #2563eb !important;
+  outline-offset: 2px;
+}
+
+/* Increase font sizes if needed */
+.font-size-large {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+}
+
+.font-size-larger {
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
+}
+
+/* Navigation Styles */
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navigation container */
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+/* Logo styles */
+.nav-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-logo-link {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.nav-logo-link:hover {
+    color: #007bff;
+}
+
+/* Navigation menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin-left: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+/* Logout button specific styles */
+.nav-logout {
+    color: #dc3545 !important;
+    font-weight: 600;
+}
+
+.nav-logout:hover {
+    color: #c82333 !important;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    margin: -0.5rem -1rem;
+}
+
+/* Hover effect underline */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #007bff;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Remove underline from logout button */
+.nav-logout::after {
+    display: none;
+}
+
+/* Hamburger menu toggle */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 2rem 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-item {
+        margin: 1rem 0;
+    }
+
+    .nav-link {
+        padding: 1rem;
+        display: block;
+        font-size: 1.1rem;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    /* Hamburger animation */
+    .nav-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+/* Additional responsive breakpoint */
+@media screen and (max-width: 480px) {
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    .nav-item {
+        margin: 0.8rem 0;
+    }
+
+    .nav-logo {
+        font-size: 1.5rem;
+    }
+}
+
+/* Main content styling */
+main {
+    margin-top: 70px; /* Account for fixed navbar */
+}
+
+.content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 20px;
+}
+
+.content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.content p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
