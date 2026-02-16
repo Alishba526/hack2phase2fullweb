@@ -36,28 +36,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Database
-*.db
-*.sqlite
-*.sqlite3
-todo_app.db
-todo_app_local.db
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-venv/
-env/
-ENV/
-.venv
-*.egg-info/
-.pytest_cache/
-.coverage
-htmlcov/
-
 # IDE
 .vscode/
 .idea/
@@ -69,20 +47,6 @@ htmlcov/
 Thumbs.db
 
 # Test files
-test_*.py
-*_test.py
-tests/
-__tests__/
 *.test.js
 *.spec.js
-
-# Build artifacts
-*.pyc
-*.pyo
-*.pyd
-
-# Secrets and credentials
-*.key
-*.secret
-credentials.json
-service-account.json
+__tests__/
